@@ -1,0 +1,30 @@
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <form #myForm="ngForm" (ngSubmit)="cadastrarVeiculo(myForm)">
+        <h4 class="card-title">Cadastrar Veiculo</h4>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Modelo</span>
+          <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo" aria-label="Modelo"
+            aria-describedby="basic-addon1" ngModel required>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Marca</span>
+          <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca" aria-label="Marca"
+            aria-describedby="basic-addon1" ngModel required>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Ano Fabricação</span>
+          <input type="number" class="form-control" id="anoFab" name="anoFab" placeholder="Ano Fabricacao"
+            aria-label="Ano Fabricacao" aria-describedby="basic-addon1" ngModel required>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

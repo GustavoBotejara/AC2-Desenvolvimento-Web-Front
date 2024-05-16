@@ -1,0 +1,44 @@
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Editar Veiculo</h4>
+      <label for="select">Selecione o Veículo para Edição</label>
+      <select id="select" class="form-select" aria-label="Default select example" [(ngModel)]="veiculoSelecionadoId"
+        (ngModelChange)="obterVeiculoPorId($event)">
+        <option value="">-</option>
+        @for (veiculo of listaVeiculos; track veiculo.id) {
+        <option [value]="veiculo._id">{{ veiculo.modelo}} - {{ veiculo.marca }} ({{ veiculo.anoFab }}) </option>
+        } @empty {
+        <option value="">Nenhum veículo cadastrado</option>
+        }
+      </select>
+      <br>
+      @if (veiculoSelecionadoId) {
+      <form #myForm="ngForm" (ngSubmit)="editarVeiculo(myForm)">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Modelo</span>
+          <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo" aria-label="Modelo"
+            aria-describedby="basic-addon1" ngModel required [(ngModel)]="veiculoSelecionado.modelo">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Marca</span>
+          <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca" aria-label="Marca"
+            aria-describedby="basic-addon1" ngModel required [(ngModel)]="veiculoSelecionado.marca">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Ano Fabricação</span>
+          <input type="number" class="form-control" id="anoFab" name="anoFab" placeholder="Ano Fabricacao"
+            aria-label="Ano Fabricacao" aria-describedby="basic-addon1" ngModel required
+            [(ngModel)]="veiculoSelecionado.anoFab">
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-lg">Editar</button>
+          </div>
+        </div>
+      </form>
+      }
+    </div>
+  </div>
+</div>

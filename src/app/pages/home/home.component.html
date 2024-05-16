@@ -1,0 +1,21 @@
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <ul class="list-group">
+        <h4 class="card-title">Veículos Disponíveis</h4>
+        @for (veiculo of listaVeiculos; track veiculo.id) {
+        <li class="list-group-item">
+          <div class="list-item" [ngStyle]="{'color': corVeiculo(veiculo)}">
+            {{ veiculo.modelo }} - {{ veiculo.marca }} ({{ veiculo.anoFab }})
+            <button type="button" class="btn btn-danger" (click)="onClickExcluir(veiculo)">Excluir</button>
+          </div>
+        </li>
+        } @empty {
+        <li class="list-group-item">
+          <p>Nenhum veículo cadastrado</p>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
